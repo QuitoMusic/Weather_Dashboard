@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.h1-container {
+    padding: 4px;
+    font-family: 'Pacifico', cursive;
+}
+
+.search-label{
+    font-size: larger;
+    font-family: 'Pacifico', cursive;
+}
+
+.row{
+ margin: 0px;
+}
+
+.custom-font{
+    font-size: larger;
+    font-weight:300;
+}
