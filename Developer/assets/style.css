@@ -1,0 +1,102 @@
+/*Universal Selectors*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.h1-container {
+  padding: 4px;
+  font-family: 'Pacifico', cursive;
+}
+
+.search-label {
+  font-size: larger;
+  font-family: 'Pacifico', cursive;
+}
+
+.row {
+  width: 500px;
+}
+
+.custom-font {
+  font-size: larger;
+  font-weight: 300;
+}
+
+.custom-font-2 {
+  font-size: 70px;
+  font-weight: 300;
+}
+
+/*Current weather and forecast selectors*/
+
+.wi {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.current-weather{
+  display:inline;
+  top: 100px;
+}
+
+#current-weather-info {
+  font-size: larger;
+  font-weight: 300;
+  text-align: center;
+}
+
+.forecast-list {
+  list-style: none;
+  padding: 30px;
+  width: 300px 300px 200px 200px; 
+}
+
+.forecast{
+position: absolute;
+width: 300px;
+}
+
+.weather-icon {
+  
+  font-size: 100px;
+  margin-top: 20px;
+}
+
+/*--- Media Queries---*/
+
+@media (max-width: 767px) {
+  #city-name {
+    display:block;
+    text-align: center;
+    font-size: 70px;
+  }
+
+  .search-label{
+    text-align: center;
+  }
+
+  .current-weather{
+      position: inherit;
+  }
+
+  #forecast-list {
+      flex-wrap: wrap;
+    }
+
+  .history{
+    text-align: center;
+  }
+
+  .btn{
+    margin-left: 40px;
+    width:400px;
+  }
+
+    .list-group{
+      text-align: center;
+      position: inherit;
+    }
+}

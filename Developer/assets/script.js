@@ -1,5 +1,9 @@
+//API Rules//
 let weatherApiRootUrl = 'https://api.openweathermap.org';
 let weatherApiKey = 'e4b6d84d9f08d3010824b8171389a8bb';
+
+
+//Search history//
 
 function saveSearch() {
   let searchQuery = document.getElementById("search-input").value;
@@ -17,6 +21,8 @@ function saveSearch() {
     performSearch(searchQuery);
   }
 }
+
+//Displays previous searches, links and prevents repetitive histories//
 
 function displaySearches() {
   let searches = JSON.parse(localStorage.getItem("searches")) || [];
@@ -37,6 +43,9 @@ function displaySearches() {
     searchHistoryElement.appendChild(listItem);
   });
 }
+
+
+//Displays the city name with it's current weather data//
 
 function displayCityName(cityName) {
   let cityNameElement = document.getElementById("city-name");
@@ -65,6 +74,8 @@ function performSearch(location) {
     });
 }
 
+//Formats the weather data//
+
 function displayCurrentWeather(weatherData) {
   let temperature = weatherData.main.temp;
   let humidity = weatherData.main.humidity;
@@ -83,9 +94,13 @@ function displayCurrentWeather(weatherData) {
     Condition: ${description}<br>
     <i class="weather-icon"></i>`;
 
+//Calling the weather icon inside the function to show on the forecast//
+
   let iconElement = document.querySelector(".weather-icon");
   setWeatherIcon(description, iconElement);
 }
+
+//Sets weather icon depending on the weather conditions//
 
 function setWeatherIcon(description, iconElement) {
   iconElement.className = "weather-icon wi";
@@ -104,6 +119,8 @@ function setWeatherIcon(description, iconElement) {
     iconElement.classList.add("wi-question");
   }
 }
+
+//Forecast function shows 5 days of future weather//
 
 function displayForecast(forecastData) {
   let forecastListElement = document.getElementById("forecast-list");
@@ -130,27 +147,27 @@ function displayForecast(forecastData) {
       let dateElement = document.createElement("span");
       dateElement.textContent = formatDate(date);
       listItem.appendChild(dateElement);
-      listItem.appendChild(document.createElement("br")); // Add a line break after dateElement
+      listItem.appendChild(document.createElement("br")); 
 
       let temperatureElement = document.createElement("span");
       temperatureElement.innerHTML = `Temperature: ${temperatureFahrenheit} ℉`;
       listItem.appendChild(temperatureElement);
-      listItem.appendChild(document.createElement("br")); // Add a line break after temperatureElement
+      listItem.appendChild(document.createElement("br")); 
 
       let humidityElement = document.createElement("span");
       humidityElement.textContent = `Humidity: ${humidity}%`;
       listItem.appendChild(humidityElement);
-      listItem.appendChild(document.createElement("br")); // Add a line break after humidityElement
+      listItem.appendChild(document.createElement("br")); 
 
       let windSpeedElement = document.createElement("span");
       windSpeedElement.textContent = `Wind Speed: ${windSpeed.toFixed(1)}mph`;
       listItem.appendChild(windSpeedElement);
-      listItem.appendChild(document.createElement("br")); // Add a line break after windSpeedElement
+      listItem.appendChild(document.createElement("br")); 
 
       let descriptionElement = document.createElement("span");
       descriptionElement.textContent = `Condition: ${description}`;
       listItem.appendChild(descriptionElement);
-      listItem.appendChild(document.createElement("br")); // Add a line break after descriptionElement
+      listItem.appendChild(document.createElement("br")); 
 
       let iconElement = document.createElement("i");
       iconElement.className = "weather-icon";
@@ -161,6 +178,8 @@ function displayForecast(forecastData) {
     }
   }
 }
+
+//Shows dates formatted to month and day displays//
 
 function formatDate(date) {
   const options = { month: 'short', day: 'numeric' };
