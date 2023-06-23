@@ -146,8 +146,9 @@ function displayForecast(forecastData) {
 
       let dateElement = document.createElement("span");
       dateElement.textContent = formatDate(date);
+      dateElement.classList.add("date"); 
       listItem.appendChild(dateElement);
-      listItem.appendChild(document.createElement("br")); 
+      listItem.appendChild(document.createElement("br"));
 
       let temperatureElement = document.createElement("span");
       temperatureElement.innerHTML = `Temperature: ${temperatureFahrenheit} ℉`;

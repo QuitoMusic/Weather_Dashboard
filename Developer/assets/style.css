@@ -11,11 +11,6 @@
   font-family: 'Pacifico', cursive;
 }
 
-.search-label {
-  font-size: larger;
-  font-family: 'Pacifico', cursive;
-}
-
 .row {
   width: 500px;
 }
@@ -30,6 +25,12 @@
   font-weight: 300;
 }
 
+.search-form{
+  margin: 0px;
+  padding: 0px;
+  position: fixed;
+}
+
 /*Current weather and forecast selectors*/
 
 .wi {
@@ -37,32 +38,42 @@
   margin-bottom: 20px;
 }
 
-.current-weather{
-  display:inline;
-  top: 100px;
-}
-
-#current-weather-info {
-  font-size: larger;
+.current-weather-info {
+  position: relative;
+  top: -120px;
+  left: 550px;
+  font-size: 15px;
   font-weight: 300;
-  text-align: center;
 }
 
 .forecast-list {
+  font-size: 15px;
+  position: relative;
+  left: -500px;
   list-style: none;
-  padding: 30px;
-  width: 300px 300px 200px 200px; 
+  padding: 50px;
+  width: 500px; 
+  margin-right: 10px;
+  align-items: center;
+  text-align: center;
 }
 
 .forecast{
-position: absolute;
+position: relative;
 width: 300px;
+left: 20px;
+}
+
+.date{
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .weather-icon {
-  
+  position: relative;
   font-size: 100px;
-  margin-top: 20px;
+  margin-top: 10px;
+  left: -10px;
 }
 
 /*--- Media Queries---*/
