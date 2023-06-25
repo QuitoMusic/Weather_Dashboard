@@ -1,9 +1,8 @@
-//API Rules//
+// API Rules
 let weatherApiRootUrl = 'https://api.openweathermap.org';
 let weatherApiKey = 'e4b6d84d9f08d3010824b8171389a8bb';
 
-
-//Search history//
+// Search history
 
 function saveSearch() {
   let searchQuery = document.getElementById("search-input").value;
@@ -11,40 +10,65 @@ function saveSearch() {
   if (searchQuery !== "") {
     let searches = JSON.parse(localStorage.getItem("searches")) || [];
 
-    if (!searches.includes(searchQuery)) {
-      searches.push(searchQuery);
+    if (!searches.some(search => search.query === searchQuery)) {
+      searches.push({ query: searchQuery, timestamp: Date.now() });
       localStorage.setItem("searches", JSON.stringify(searches));
     }
 
     document.getElementById("search-input").value = "";
-    displaySearches();
     performSearch(searchQuery);
+    displaySearches(); // Move the displaySearches() function call here
   }
 }
-//Displays previous searches, links and prevents repetitive histories//
 
+$(document).on("click", function(event) {
+  var target = $(event.target);
+  var searchInput = $("#search-input");
+  
+
+// Check if the clicked element is outside of the search bar and the search history
+$(document).on("click", function(event) {
+  var target = $(event.target);
+  var searchInput = $("#search-input");
+  var searchHistory = $(".history");
+
+  if (!target.is(searchInput) && !target.closest(".history").length) {
+    searchHistory.hide();
+  } else {
+    searchHistory.show();
+  }
+})
+});
+
+// Displays previous searches, links, and prevents repetitive histories
 function displaySearches() {
   let searches = JSON.parse(localStorage.getItem("searches")) || [];
   let searchHistoryElement = document.getElementById("search-history");
 
   searchHistoryElement.innerHTML = "";
 
-  searches.forEach(function (search) {
+  // Sort the searches array in reverse order to get the most recent searches first
+  searches.sort((a, b) => b.timestamp - a.timestamp);
+
+  // Iterate over the first 3 searches or the total number of searches if less than 3
+  for (let i = 0; i < Math.min(searches.length, 3); i++) {
+    let search = searches[i];
     let listItem = document.createElement("li");
     listItem.className = "list-group-item";
     let link = document.createElement("a");
-    link.textContent = search;
+    link.textContent = search.query;
     link.href = "#";
-    link.addEventListener("click", function () {
-      performSearch(search);
+    link.addEventListener("click", function() {
+      performSearch(search.query);
     });
     listItem.appendChild(link);
     searchHistoryElement.appendChild(listItem);
-  });
+  }
 }
 
 
-//Displays the city name with it's current weather data//
+
+// Displays the city name with its current weather data
 
 function displayCityName(cityName) {
   let cityNameElement = document.getElementById("city-name");
@@ -73,7 +97,7 @@ function performSearch(location) {
     });
 }
 
-//Formats the weather data//
+// Formats the weather data
 
 function displayCurrentWeather(weatherData) {
   let temperature = weatherData.main.temp;
@@ -93,13 +117,13 @@ function displayCurrentWeather(weatherData) {
     Wind Speed: ${windSpeed.toFixed(1)} mph<br> 
     Condition: ${description}<br>`;
 
-//Calling the weather icon inside the function to show on the forecast//
+  // Calling the weather icon inside the function to show on the forecast
 
   let iconElement = document.querySelector(".weather-icon");
   setWeatherIcon(description, iconElement);
 }
 
-//Sets weather icon depending on the weather conditions//
+// Sets weather icon depending on the weather conditions
 
 function setWeatherIcon(description, iconElement) {
   iconElement.className = "weather-icon wi";
@@ -119,7 +143,7 @@ function setWeatherIcon(description, iconElement) {
   }
 }
 
-//Forecast function shows 5 days of future weather//
+// Forecast function shows 5 days of future weather
 
 function displayForecast(forecastData) {
   let forecastListElement = document.getElementById("forecast-list");
@@ -179,7 +203,7 @@ function displayForecast(forecastData) {
   }
 }
 
-//Shows dates formatted to month and day displays//
+// Shows dates formatted to month and day displays
 
 function formatDate(date) {
   const options = { month: 'short', day: 'numeric' };
@@ -192,3 +216,5 @@ document.getElementById("search-form").addEventListener("submit", function (even
 });
 
 displaySearches();
+
+

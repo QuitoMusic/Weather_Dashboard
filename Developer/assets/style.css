@@ -49,13 +49,19 @@
 .forecast-list {
   font-size: 13px;
   position: relative;
-  left: -500px;
+  left: -250px;
   top: -20px;
   list-style: none;
   padding: 50px;
   width:500px; 
   margin-right: 10px;
   text-align: center;
+}
+
+.history{
+  border-style: none;
+  position: relative;
+  left: -20px;
 }
 
 .forecast{
