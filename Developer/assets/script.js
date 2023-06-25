@@ -71,9 +71,14 @@ function displaySearches() {
 // Displays the city name with its current weather data
 
 function displayCityName(cityName) {
+  let lowercaseCityName = cityName.toLowerCase();
+  let words = lowercaseCityName.split(" ");
+  let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+  let formattedCityName = capitalizedWords.join(" ");
   let cityNameElement = document.getElementById("city-name");
-  cityNameElement.textContent = cityName;
+  cityNameElement.textContent = formattedCityName;
 }
+
 
 function performSearch(location) {
   displayCityName(location);

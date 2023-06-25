@@ -33,6 +33,10 @@
 
 /*Current weather and forecast selectors*/
 
+#city-name{
+ font-size: 60px;
+}
+
 .wi {
   margin-left: 20px;
   margin-bottom: 20px;
