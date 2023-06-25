@@ -21,7 +21,6 @@ function saveSearch() {
     performSearch(searchQuery);
   }
 }
-
 //Displays previous searches, links and prevents repetitive histories//
 
 function displaySearches() {
@@ -88,11 +87,11 @@ function displayCurrentWeather(weatherData) {
   let currentWeatherInfoElement = document.getElementById("current-weather-info");
   currentWeatherInfoElement.innerHTML = `
     Today: ${formattedDate}<br>
+    <i class="weather-icon"></i><br>
     Temperature: ${temperatureFahrenheit} &#8457;<br>
     Humidity: ${humidity}%<br>
     Wind Speed: ${windSpeed.toFixed(1)} mph<br> 
-    Condition: ${description}<br>
-    <i class="weather-icon"></i>`;
+    Condition: ${description}<br>`;
 
 //Calling the weather icon inside the function to show on the forecast//
 
@@ -150,6 +149,11 @@ function displayForecast(forecastData) {
       listItem.appendChild(dateElement);
       listItem.appendChild(document.createElement("br"));
 
+      let iconElement = document.createElement("i");
+      iconElement.className = "weather-icon";
+      setWeatherIcon(description, iconElement);
+      listItem.appendChild(iconElement);
+
       let temperatureElement = document.createElement("span");
       temperatureElement.innerHTML = `Temperature: ${temperatureFahrenheit} ℉`;
       listItem.appendChild(temperatureElement);
@@ -169,11 +173,6 @@ function displayForecast(forecastData) {
       descriptionElement.textContent = `Condition: ${description}`;
       listItem.appendChild(descriptionElement);
       listItem.appendChild(document.createElement("br")); 
-
-      let iconElement = document.createElement("i");
-      iconElement.className = "weather-icon";
-      setWeatherIcon(description, iconElement);
-      listItem.appendChild(iconElement);
 
       forecastListElement.appendChild(listItem);
     }

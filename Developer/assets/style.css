@@ -39,28 +39,27 @@
 }
 
 .current-weather-info {
-  position: relative;
-  top: -120px;
+  position: fixed;
+  top: 70px;
   left: 550px;
   font-size: 15px;
   font-weight: 300;
 }
 
 .forecast-list {
-  font-size: 15px;
+  font-size: 13px;
   position: relative;
   left: -500px;
+  top: -20px;
   list-style: none;
   padding: 50px;
-  width: 500px; 
+  width:500px; 
   margin-right: 10px;
-  align-items: center;
   text-align: center;
 }
 
 .forecast{
 position: relative;
-width: 300px;
 left: 20px;
 }
 
