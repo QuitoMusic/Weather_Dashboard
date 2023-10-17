@@ -1,122 +1,96 @@
-/*Universal Selectors*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-.h1-container {
-  padding: 4px;
+.pageTitle{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   font-family: 'Pacifico', cursive;
+  font-size: 60px;
 }
 
-.row {
-  width: 500px;
+.MountainLogo{
+  width: 80px;
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-grow: unset;
+  filter: invert();
 }
 
-.custom-font {
-  font-size: larger;
-  font-weight: 300;
-}
-
-.custom-font-2 {
-  font-size: 70px;
-  font-weight: 300;
-}
-
-.search-form{
-  margin: 0px;
-  padding: 0px;
-  position: fixed;
+/*Search Form*/
+.searchText{
+  position:relative;
+  text-align: center;
+  align-items: center;
 }
 
 /*Current weather and forecast selectors*/
-
-#city-name{
- font-size: 60px;
-}
-
-.wi {
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-.current-weather-info {
-  position: fixed;
-  top: 70px;
-  left: 550px;
-  font-size: 15px;
+.card{
   font-weight: 300;
 }
 
 .forecast-list {
-  font-size: 13px;
-  position: relative;
-  left: -250px;
-  top: -20px;
+  font-size: 8px;
   list-style: none;
-  padding: 50px;
-  width:500px; 
-  margin-right: 10px;
+  width:290px; 
+  margin-left: 145px;
+  margin-top: 20px;
   text-align: center;
 }
 
-.history{
-  border-style: none;
+.wi {
   position: relative;
-  left: -20px;
-}
-
-.forecast{
-position: relative;
-left: 20px;
+  top: 20px;
+  font-size: 60px; 
+  padding-bottom: 30px;
+  padding-top: 10px;
 }
 
 .date{
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 15px;
+  position: relative;
+  top: 20px;
 }
 
-.weather-icon {
-  position: relative;
-  font-size: 100px;
-  margin-top: 10px;
-  left: -10px;
+.current-weather-info{
+  font-size: 10px;
+  height: 100px;
+}
+
+#current-weather-info{
+  font-size: 10px;
+  height: 100px;
+}
+
+.list-group-item{
+  z-index: 1;
 }
 
 /*--- Media Queries---*/
-
-@media (max-width: 767px) {
-  #city-name {
-    display:block;
-    text-align: center;
-    font-size: 70px;
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 25px; /* Adjust the font size as needed for smaller screens */
   }
 
-  .search-label{
-    text-align: center;
+  .MountainLogo {
+    width: 30px;
   }
 
-  .current-weather{
-      position: inherit;
-  }
-
-  #forecast-list {
-      flex-wrap: wrap;
-    }
-
-  .history{
+  .forecast-list ul {
+    position: relative;
+    left: -15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
-  .btn{
-    margin-left: 40px;
-    width:400px;
+  .forecast-list li {
+    font-size: 10px;
+    width:100px; 
+    margin-left: -180px;
+    padding: 0px;
+    margin-bottom: 100px;
   }
-
-    .list-group{
-      text-align: center;
-      position: inherit;
-    }
 }
+
