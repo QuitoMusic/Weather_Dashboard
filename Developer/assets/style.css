@@ -110,7 +110,7 @@ p{
     position: absolute;
     display: block;
     flex-direction: column;
-    top: 185%;
+    top: 200%;
     left: 55%;
     transform: translate(-50%, -50%);
   }
