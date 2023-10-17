@@ -185,7 +185,7 @@ function displayCurrentWeather(weatherData) {
 
   let currentWeatherInfoElement = document.getElementById('current-weather-info');
   currentWeatherInfoElement.innerHTML = `
-    Today: ${formattedDate}<br>
+    <p class= "TodayDate">Today: ${formattedDate}</p><br>
     <i class="weather-icon"></i><br>
     Temperature: ${temperatureFahrenheit} &#8457;<br>
     Humidity: ${humidity}%<br>
