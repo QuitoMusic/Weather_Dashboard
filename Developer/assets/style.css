@@ -1,5 +1,12 @@
 body{
   background-color: rgba(62, 11, 11, 0.804);
+  margin: 0;
+  padding: 0;
+}
+
+footer{
+  position: relative;
+top: 47px;
 }
 
 p, .search-label, .current-weather-info, #city-name, .forecast-list{
@@ -103,7 +110,7 @@ p{
     position: absolute;
     display: block;
     flex-direction: column;
-    top: 200%;
+    top: 185%;
     left: 55%;
     transform: translate(-50%, -50%);
   }
@@ -113,6 +120,12 @@ p{
     width:60%; 
     margin-left: 0px;
     margin-bottom: 50px;
+  }
+
+  .footer{
+    display: block;
+    position: relative;
+    top: 1300px;
   }
 }
 
